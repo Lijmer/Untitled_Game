@@ -11,7 +11,7 @@ TriangleMask::~TriangleMask(void)
 {
 }
 
-bool TriangleMask::CheckCollision(const RectangleMask &other)
+bool TriangleMask::CheckCollision(const RectangleMask &other) const
 {
 	if((x1 > other.GetX()-other.GetBoundLeft() && x1 < other.GetX()+other.GetBoundRight()
 		&& y1 > other.GetY()-other.GetBoundUp() && y1 < other.GetY()+other.GetBoundDown())
@@ -34,11 +34,11 @@ bool TriangleMask::CheckCollision(const RectangleMask &other)
 
 	return false;
 }
-bool TriangleMask::CheckCollision(const CircleMask &other)
+bool TriangleMask::CheckCollision(const CircleMask &other) const
 {
 	return false;
 }
-bool TriangleMask::CheckCollision(const TriangleMask &other)
+bool TriangleMask::CheckCollision(const TriangleMask &other) const
 {
 	if(IsPInTriangle(x1,y1,x2,y2,x3,y3, other.GetX1(), other.GetY1()))
 		return true;

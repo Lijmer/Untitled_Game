@@ -10,9 +10,9 @@ public:
 	float GetY() const		{return y;}
 	float GetRadius() const	{return radius;}
 
-	bool CheckCollision(const RectangleMask &other);
-	bool CheckCollision(const CircleMask &other);
-	bool CheckCollision(const TriangleMask &other);
+	bool CheckCollision(const RectangleMask &other) const;
+	bool CheckCollision(const CircleMask &other) const;
+	bool CheckCollision(const TriangleMask &other) const;
 
 private:
 	float x;

@@ -11,7 +11,17 @@ RectangleMask::~RectangleMask(void)
 {
 }
 
-bool RectangleMask::CheckCollision(const RectangleMask &other)
+void RectangleMask::Init(float x, float y, int boundUp, int boundDown, int boundLeft, int boundRight)
+{
+	RectangleMask::x          = x;
+	RectangleMask::y          = y;
+	RectangleMask::boundUp    = boundUp;
+	RectangleMask::boundDown  = boundDown;
+	RectangleMask::boundLeft  = boundLeft;
+	RectangleMask::boundRight = boundRight;
+}
+
+bool RectangleMask::CheckCollision(const RectangleMask &other) const
 {
 	if( x + boundRight > other.GetX() - other.GetBoundLeft()  &&
 		x - boundLeft  < other.GetX() + other.GetBoundRight() &&
@@ -23,7 +33,7 @@ bool RectangleMask::CheckCollision(const RectangleMask &other)
 	else
 		return false;
 }
-bool RectangleMask::CheckCollision(const CircleMask &other)
+bool RectangleMask::CheckCollision(const CircleMask &other) const
 {
 	/*points it checks:
 
@@ -34,7 +44,6 @@ bool RectangleMask::CheckCollision(const CircleMask &other)
 	*---*---*
 
 	*/
-
 	if(other.GetX() > x-boundLeft && other.GetX() < x+boundRight &&
 		other.GetY() > y-boundDown && other.GetY() < y+boundUp)
 		return true;
@@ -60,7 +69,7 @@ bool RectangleMask::CheckCollision(const CircleMask &other)
 
 	return false;
 }
-bool RectangleMask::CheckCollision(const TriangleMask &other)
+bool RectangleMask::CheckCollision(const TriangleMask &other) const
 {
 	if(other.GetX1() > x-boundLeft && other.GetX1() < x+boundRight && other.GetY1() > y-boundUp && other.GetY1() < y+boundDown
 		|| other.GetX2() > x-boundLeft && other.GetX2() < x+boundRight && other.GetY2() > y-boundUp && other.GetY2() < y+boundDown

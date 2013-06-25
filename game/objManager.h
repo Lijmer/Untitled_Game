@@ -1,11 +1,19 @@
 #ifndef OBJ_MANAGER_H
 #define OBJ_MANAGER_H
-class GameObject
+class GameObject;
+
+
+
 namespace objManager
 {
-	void UpdateObjects();
-	void DrawObjects();
-	GameObject* CreateObject(float x, float y, float velX, float velY);
+	enum objectID
+	{
+		OBJ_TEST,
+		OBJ_MAX
+	};
+	void Update();
+	void Draw();
+	GameObject* CreateObject(objectID ID,float x, float y, float velX, float velY);
 }
 
 #endif

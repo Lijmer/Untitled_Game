@@ -1,13 +1,17 @@
-#pragma once
+#ifndef _INCLUDE_SPRITE_H
+#define _INCLUDE_SPRITE_H
+
 #include <allegro5/allegro.h>
 #include "Bitmap.h"
 
 class Sprite
 {
 public:
-	Sprite(unsigned int bitmapID, bool animated = false, int columnDirection = 0, int rowDirection = 0, int rowDelay = 0,
-		int columnDelay = 0, int frameWidth = 0, int frameHeight = 0, int offsetX = 0, int offsetY = 0);
+	Sprite(void);
 	~Sprite(void);
+
+	void Init(unsigned int bitmapID, int offsetX = 0, int offsetY = 0, bool animated = false, int columnDirection = 0, int rowDirection = 0, int rowDelay = 0,
+		int columnDelay = 0, int frameWidth = 0, int frameHeight = 0);
 	
 	void Update();
 	void Draw(float x, float y);
@@ -43,7 +47,5 @@ private:
 	int maxRow;
 	int frameWidth;
 	int frameHeight;
-
-	float x;
-	float y;
 };
+#endif //header guards

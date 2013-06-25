@@ -19,52 +19,34 @@
     <Filter Include="Source Files\Mask">
       <UniqueIdentifier>{5e44e746-92c2-4c1d-9754-51c752b88b02}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Hardware">
-      <UniqueIdentifier>{a4b56fef-f46a-4304-ad0b-9bdaeeafcd28}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Hardware">
-      <UniqueIdentifier>{53f59916-f1fc-4608-b264-2c1af991f821}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\GameObjects">
       <UniqueIdentifier>{5d182cd6-c7ca-4a6e-b86a-1a2dcac8de0e}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\GameObjects">
       <UniqueIdentifier>{7e2f0eb0-cfbf-4d28-8817-7d5ba052a4ad}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Engine">
+      <UniqueIdentifier>{95ad768b-fce2-4b5d-ab39-193e2f1996db}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine\Input">
+      <UniqueIdentifier>{a4b56fef-f46a-4304-ad0b-9bdaeeafcd28}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Engine">
+      <UniqueIdentifier>{2eee9dba-383c-4c7f-9899-90cfccb87675}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Engine\Input">
+      <UniqueIdentifier>{53f59916-f1fc-4608-b264-2c1af991f821}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Exit.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Display.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Level.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Sprite.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="globals.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Mask.cpp">
       <Filter>Source Files\Mask</Filter>
     </ClCompile>
     <ClCompile Include="Mouse.cpp">
-      <Filter>Source Files\Hardware</Filter>
+      <Filter>Source Files\Engine\Input</Filter>
     </ClCompile>
     <ClCompile Include="Keyboard.cpp">
-      <Filter>Source Files\Hardware</Filter>
-    </ClCompile>
-    <ClCompile Include="Audio.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Bitmap.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Engine\Input</Filter>
     </ClCompile>
     <ClCompile Include="TriangleMask.cpp">
       <Filter>Source Files\Mask</Filter>
@@ -81,43 +63,49 @@
     <ClCompile Include="obj_Test.cpp">
       <Filter>Source Files\GameObjects</Filter>
     </ClCompile>
+    <ClCompile Include="Audio.cpp">
+      <Filter>Source Files\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Bitmap.cpp">
+      <Filter>Source Files\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Display.cpp">
+      <Filter>Source Files\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Exit.cpp">
+      <Filter>Source Files\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Level.cpp">
+      <Filter>Source Files\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Sprite.cpp">
+      <Filter>Source Files\GameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="globals.cpp">
+      <Filter>Source Files\Engine</Filter>
+    </ClCompile>
     <ClCompile Include="objManager.cpp">
+      <Filter>Source Files\GameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="objects.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Controller.cpp">
+      <Filter>Source Files\Engine\Input</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Exit.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="globals.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Display.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Audio.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Bitmap.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Level.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Sprite.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="objManager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Mask.h">
       <Filter>Header Files\Mask</Filter>
     </ClInclude>
     <ClInclude Include="Keyboard.h">
-      <Filter>Header Files\Hardware</Filter>
+      <Filter>Header Files\Engine\Input</Filter>
     </ClInclude>
     <ClInclude Include="Mouse.h">
-      <Filter>Header Files\Hardware</Filter>
+      <Filter>Header Files\Engine\Input</Filter>
     </ClInclude>
     <ClInclude Include="TriangleMask.h">
       <Filter>Header Files\Mask</Filter>
@@ -133,6 +121,33 @@
     </ClInclude>
     <ClInclude Include="obj_Test.h">
       <Filter>Header Files\GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="Level.h">
+      <Filter>Header Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Display.h">
+      <Filter>Header Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Bitmap.h">
+      <Filter>Header Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Audio.h">
+      <Filter>Header Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Sprite.h">
+      <Filter>Header Files\GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="globals.h">
+      <Filter>Header Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Exit.h">
+      <Filter>Header Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="objManager.h">
+      <Filter>Header Files\GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="Controller.h">
+      <Filter>Header Files\Engine\Input</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -9,7 +9,7 @@ CircleMask::~CircleMask(void)
 {
 }
 
-bool CircleMask::CheckCollision(const RectangleMask &other)
+bool CircleMask::CheckCollision(const RectangleMask &other) const
 {
 	if(x > other.GetX()-other.GetBoundLeft() && x < other.GetX()+other.GetBoundRight() &&
 		y > other.GetY()-other.GetBoundDown() && y < other.GetY()+other.GetBoundUp())
@@ -36,11 +36,11 @@ bool CircleMask::CheckCollision(const RectangleMask &other)
 
 	return false;
 }
-bool CircleMask::CheckCollision(const CircleMask &other)
+bool CircleMask::CheckCollision(const CircleMask &other) const
 {
 	return ((x-other.x)*(x-other.x) + (y-other.y)*(y-other.y) > (radius+other.radius)*(radius+other.radius));
 }
-bool CircleMask::CheckCollision(const TriangleMask &other)
+bool CircleMask::CheckCollision(const TriangleMask &other) const
 {
 	return false;
 }

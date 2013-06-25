@@ -6,9 +6,9 @@ public:
 	TriangleMask(void);
 	~TriangleMask(void);
 
-	bool CheckCollision(const RectangleMask &other);
-	bool CheckCollision(const CircleMask &other);
-	bool CheckCollision(const TriangleMask &other);
+	bool CheckCollision(const RectangleMask &other) const;
+	bool CheckCollision(const CircleMask &other) const;
+	bool CheckCollision(const TriangleMask &other) const;
 
 	float GetX1() const	{return x1;}
 	float GetY1() const	{return y1;}

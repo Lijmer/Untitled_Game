@@ -8,9 +8,9 @@ public:
 
 	void Init(float x=0, float y=0, int boundUp=0, int boundDown=0, int boundLeft=0, int boundRight=0);
 
-	bool CheckCollision(const RectangleMask &other);
-	bool CheckCollision(const CircleMask &other);
-	bool CheckCollision(const TriangleMask &other);
+	bool CheckCollision(const RectangleMask &other) const;
+	bool CheckCollision(const CircleMask &other) const;
+	bool CheckCollision(const TriangleMask &other) const;
 
 	void SetX(float x)					{RectangleMask::x = x;}
 	void SetY(float y)					{RectangleMask::y = y;}

@@ -1,9 +1,16 @@
 #include "Sprite.h"
-
+#include "Display.h"
+#include "Exit.h"
+#include <allegro5/allegro_native_dialog.h>
 using namespace Bitmap;
 
-Sprite::Sprite(unsigned int bitmapID, bool animated, int columnDirection, int rowDirection,
-	int rowDelay, int columnDelay, int frameWidth, int frameHeight, int offsetX, int offsetY)
+Sprite::Sprite(void)
+{}
+Sprite::~Sprite(void)
+{}
+
+void Sprite::Init(unsigned int bitmapID, int offsetX, int offsetY, bool animated, int columnDirection, int rowDirection,
+	int rowDelay, int columnDelay, int frameWidth, int frameHeight)
 {
 	bitmap = GetBitmap(bitmapID);
 
@@ -18,6 +25,8 @@ Sprite::Sprite(unsigned int bitmapID, bool animated, int columnDirection, int ro
 		bitmapHeight    = 0;
 	}
 
+	Sprite::offsetX         = offsetX;
+	Sprite::offsetY         = offsetY;
 	Sprite::animated        = animated;
 	Sprite::columnDirection = columnDirection;
 	Sprite::columnDelay     = columnDelay;
@@ -25,10 +34,6 @@ Sprite::Sprite(unsigned int bitmapID, bool animated, int columnDirection, int ro
 	Sprite::rowDelay        = rowDelay;
 	Sprite::frameWidth      = frameWidth;
 	Sprite::frameHeight     = frameHeight;
-	Sprite::offsetX         = offsetX;
-	Sprite::offsetY         = offsetY;
-	x                       = 0;
-	y                       = 0;
 	column                  = 0;
 	row                     = 0;
 
@@ -42,10 +47,6 @@ Sprite::Sprite(unsigned int bitmapID, bool animated, int columnDirection, int ro
 	else
 		maxColumn = 0;
 }
-
-
-Sprite::~Sprite(void)
-{}
 
 void Sprite::Update()
 {
@@ -72,6 +73,16 @@ void Sprite::Update()
 
 void Sprite::Draw(float x, float y)
 {
-	al_draw_bitmap_region(bitmap, frameWidth*row, frameHeight*column,
-		frameWidth, frameHeight, x-offsetX, y-offsetY, 0);
+	if(bitmap!=0)
+	{
+		//al_draw_bitmap_region(bitmap, frameWidth*row, frameHeight*column,
+		//	frameWidth, frameHeight, x-offsetX, y-offsetY, 0);
+		al_draw_bitmap(bitmap,x-offsetX,y-offsetY,0);
+	}
+	else
+	{
+		al_show_native_message_box(Display::GetDisplay(), "Sprite", "Error",
+			"bitmap == 0 :(", 0, ALLEGRO_MESSAGEBOX_ERROR);
+		Exit::Exit(1);
+	}
 }

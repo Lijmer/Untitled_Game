@@ -69,6 +69,7 @@
     <ClCompile Include="Audio.cpp" />
     <ClCompile Include="Bitmap.cpp" />
     <ClCompile Include="CircleMask.cpp" />
+    <ClCompile Include="Controller.cpp" />
     <ClCompile Include="Display.cpp" />
     <ClCompile Include="Exit.cpp" />
     <ClCompile Include="GameObject.cpp" />
@@ -78,6 +79,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Mask.cpp" />
     <ClCompile Include="Mouse.cpp" />
+    <ClCompile Include="objects.cpp" />
     <ClCompile Include="objManager.cpp" />
     <ClCompile Include="obj_Test.cpp" />
     <ClCompile Include="RectangleMask.cpp" />
@@ -88,6 +90,7 @@
     <ClInclude Include="Audio.h" />
     <ClInclude Include="Bitmap.h" />
     <ClInclude Include="CircleMask.h" />
+    <ClInclude Include="Controller.h" />
     <ClInclude Include="Display.h" />
     <ClInclude Include="Exit.h" />
     <ClInclude Include="GameObject.h" />

@@ -25,4 +25,9 @@ namespace Exit
 	{
 		return running;
 	}
+
+	int GetReturnValue()
+	{
+		return returnValue;
+	}
 }

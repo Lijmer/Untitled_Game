@@ -10,7 +10,7 @@ void PrintInBinary(int x)
     int z;
     for (z = 128; z > 0; z >>= 1)
     {
-        strcat(b, ((x & z) == z) ? "1" : "0");
+        strcat_s(b, ((x & z) == z) ? "1" : "0");
     }
 
     std::cout << b << std::endl;

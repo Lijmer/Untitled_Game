@@ -20,6 +20,7 @@ namespace Bitmap
 	void InitBitmaps()
 	{
 		al_init_image_addon();
+		al_set_new_bitmap_flags(ALLEGRO_MIN_LINEAR | ALLEGRO_MAG_LINEAR);
 	}
 	void DestroyBitmaps()
 	{
@@ -36,6 +37,15 @@ namespace Bitmap
 			return;
 
 		bitmap[bitmapNum] = al_load_bitmap(GetFilePath(bitmapNum).c_str());
+		if(bitmap[bitmapNum] == 0)
+		{
+			al_show_native_message_box(Display::GetDisplay(), "Bitmap", "Error",
+			"Couldn't load file", 0, ALLEGRO_MESSAGEBOX_ERROR);
+			std::map<unsigned int, ALLEGRO_BITMAP*>::iterator it;
+			it = bitmap.find(bitmapNum);
+			bitmap.erase(it);
+			return;
+		}
 		loadedBitmapID.push_back(bitmapNum);
 	}
 	void LoadBitmap(std::vector<unsigned int> &bitmapNum)
@@ -46,6 +56,15 @@ namespace Bitmap
 			if(IsBitmapLoaded(*iter) || (*iter)>=IMG_MAX)
 				continue;
 			bitmap[(*iter)] = al_load_bitmap(GetFilePath((*iter)).c_str());
+			if(!bitmap[*iter])
+			{
+				al_show_native_message_box(Display::GetDisplay(), "Bitmap", "Error",
+				"Couldn't load file", 0, ALLEGRO_MESSAGEBOX_ERROR);
+				std::map<unsigned int, ALLEGRO_BITMAP*>::iterator it;
+				it = bitmap.find(*iter);
+				bitmap.erase(it);
+				return;
+			}
 			loadedBitmapID.push_back(*iter);
 		}
 	}
@@ -60,7 +79,7 @@ namespace Bitmap
 			break;
 		default:
 			al_show_native_message_box(GetDisplay(), "Bitmap", "Error",
-				"Unknown imageID",0, ALLEGRO_MESSAGEBOX_ERROR);
+				"Unknown imageID" ,0, ALLEGRO_MESSAGEBOX_ERROR);
 			path = "img/error.png";
 			break;
 		}

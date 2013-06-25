@@ -9,6 +9,8 @@ namespace Exit
 	void Exit(int returnValue);
 
 	bool GetRunning();
+
+	int GetReturnValue();
 }
 
 #endif

@@ -6,7 +6,7 @@
 
 namespace Bitmap
 {
-	enum
+	enum bitmaps
 	{
 		IMG_TEST,
 		IMG_MAX
@@ -14,7 +14,7 @@ namespace Bitmap
 	//public functions
 	void InitBitmaps();
 	void DestroyBitmaps();
-
+	
 	void LoadBitmap(unsigned int bitmapNum);
 	void LoadBitmap(std::vector<unsigned int> &bitmapNum);
 
