@@ -7,6 +7,7 @@
 #include "Display.h"
 #include "Audio.h"
 #include "Bitmap.h"
+#include "Text.h"
 #include "Keyboard.h"
 #include "Mouse.h"
 #include "Controller.h"
@@ -39,10 +40,8 @@ int main()
 	CreateDisplay();
 	InstallAddons();
 	InitEvents();
-
-	Bitmap::LoadBitmap(Bitmap::IMG_TEST);
-	objManager::CreateObject(objManager::OBJ_TEST, _SW/2, _SH/2, 0, 0);
-
+	for(int i=0; i<1; ++i)
+		objManager::CreateObject(objManager::OBJ_TEST, _SW/2, _SH/2, 0, 0);
 	while(Exit::GetRunning())
 	{
 		ALLEGRO_EVENT ev;
@@ -85,6 +84,7 @@ void InstallAddons()
 	al_init_primitives_addon();
 	InitAudio();
 	Bitmap::InitBitmaps();
+	Text::Init();
 	InitKeyboard();
 	InitMouse();
 	Controller::InitController();
@@ -145,6 +145,7 @@ void Draw()
 	al_draw_line(0,_SH/2,_SW,_SH/2, al_map_rgb(255,255,255), 1);
 	al_draw_line(_SW/2,0,_SW/2,_SH, al_map_rgb(255,255,255), 1);
 	objManager::Draw();
+	Text::DrawTextOutline(Text::NOKIA_FONT, al_map_rgb(255,255,255), al_map_rgb(0,0,255), 20, 20, 1, 0, "FPS: %f", FPS);
 	al_flip_display();
 }
 void Clean()

@@ -5,6 +5,12 @@
 
 namespace Controller
 {
+	struct Joystick
+	{
+		float h_axis;
+		float v_axis;
+	};
+
 	enum ControllerButton
 	{
 		TRIANGLE,
@@ -31,5 +37,8 @@ namespace Controller
 	void ButtonUpEvent(const ALLEGRO_EVENT &ev);
 	void AxisEvent(const ALLEGRO_EVENT &ev);
 }
+
+
+
 
 #endif

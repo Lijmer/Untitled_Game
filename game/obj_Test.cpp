@@ -40,5 +40,4 @@ void obj_Test::Destroy()
 
 void obj_Test::Collided(GameObject *other)
 {
-	std::cout << other << std::endl;
 }

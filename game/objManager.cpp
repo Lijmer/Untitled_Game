@@ -42,6 +42,7 @@ namespace objManager
 			return obj_test;
 			break;
 		}
+		return 0;
 	}
 
 	//private

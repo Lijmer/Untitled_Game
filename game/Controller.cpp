@@ -2,6 +2,8 @@
 #include "globals.h"
 namespace Controller
 {
+	Joystick stick[3];
+
 	bool button[MAX_BUTTON];
 	bool buttonPressed[MAX_BUTTON];
 	bool buttonReleased[MAX_BUTTON];
@@ -61,6 +63,26 @@ namespace Controller
 	}
 	void AxisEvent(const ALLEGRO_EVENT &ev)
 	{
-
+		if(ev.joystick.stick == 0)
+		{
+			if(ev.joystick.axis == 0)
+				stick[0].h_axis = ev.joystick.pos;
+			else if(ev.joystick.axis == 1)
+				stick[0].v_axis = ev.joystick.pos;
+			else if(ev.joystick.axis == 2)		//this is very ugly, h_axis for stick1 is on stick0 :(
+				stick[1].h_axis = ev.joystick.pos;
+		}
+		else if(ev.joystick.stick == 1)
+		{
+			if(ev.joystick.axis == 0)
+				stick[1].v_axis = ev.joystick.pos;
+		}
+		else if(ev.joystick.stick == 2)
+		{
+			if(ev.joystick.axis == 0)
+				stick[2].h_axis = ev.joystick.pos;
+			else if(ev.joystick.axis == 1)
+				stick[2].v_axis = ev.joystick.pos;
+		}
 	}
 }

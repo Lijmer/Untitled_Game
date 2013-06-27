@@ -2,7 +2,6 @@
 #include "Display.h"
 #include "Exit.h"
 #include <allegro5/allegro_native_dialog.h>
-using namespace Bitmap;
 
 Sprite::Sprite(void)
 {}
@@ -12,7 +11,8 @@ Sprite::~Sprite(void)
 void Sprite::Init(unsigned int bitmapID, int offsetX, int offsetY, bool animated, int columnDirection, int rowDirection,
 	int rowDelay, int columnDelay, int frameWidth, int frameHeight)
 {
-	bitmap = GetBitmap(bitmapID);
+	Bitmap::LoadBitmap(bitmapID);
+	bitmap = Bitmap::GetBitmap(bitmapID);
 
 	if(bitmap)
 	{
