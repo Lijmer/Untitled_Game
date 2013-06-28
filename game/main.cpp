@@ -1,5 +1,7 @@
 #include "globals.h"
 
+#include <cstdlib>
+
 #include <allegro5/allegro.h>
 #include <allegro5/allegro_native_dialog.h>
 #include <allegro5/allegro_primitives.h>
@@ -35,21 +37,28 @@ ALLEGRO_TIMER       *timer       = 0;
 
 int main()
 {
-	InitAllegro();
+	std::cout << sizeof(char) << std::endl;
+	
+	while(1)
+		free(malloc(10000000000));
+
+    InitAllegro();
 	SetInformation();
 	CreateDisplay();
 	InstallAddons();
 	InitEvents();
-	for(int i=0; i<1; ++i)
-		objManager::CreateObject(objManager::OBJ_TEST, _SW/2, _SH/2, 0, 0);
+
+	
 	while(Exit::GetRunning())
 	{
+		
 		ALLEGRO_EVENT ev;
 		al_wait_for_event(event_queue, &ev);
 		HandleEvent(ev);
 		if(redraw && al_is_event_queue_empty(event_queue))
 			Draw();
 	}
+
 	Clean();
 	return Exit::GetReturnValue();
 }
