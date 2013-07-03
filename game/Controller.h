@@ -5,37 +5,37 @@
 
 namespace Controller
 {
-	struct Joystick
-	{
-		float h_axis;
-		float v_axis;
-	};
+  struct Joystick
+  {
+    float h_axis;
+    float v_axis;
+  };
 
-	enum ControllerButton
-	{
-		TRIANGLE,
-		CIRCLE,
-		CROSS,
-		SQUARE,
-		L1,
-		R1,
-		L2,
-		R2,
-		SELECT,
-		START,
-		L3,
-		R3
-	};
-	const int MAX_BUTTON = 12;
-	void InitController();
-	void Clean();
-	bool GetButton(ControllerButton ID);
-	bool GetButtonPressed(ControllerButton ID);
-	bool GetButtonReleased(ControllerButton ID);
+  enum ControllerButton
+  {
+    TRIANGLE,
+    CIRCLE,
+    CROSS,
+    SQUARE,
+    L1,
+    R1,
+    L2,
+    R2,
+    SELECT,
+    START,
+    L3,
+    R3
+  };
+  const int MAX_BUTTON = 12;
+  void Init();
+  void Clean();
+  bool GetButton(ControllerButton ID);
+  bool GetButtonPressed(ControllerButton ID);
+  bool GetButtonReleased(ControllerButton ID);
 
-	void ButtonDownEvent(const ALLEGRO_EVENT &ev);
-	void ButtonUpEvent(const ALLEGRO_EVENT &ev);
-	void AxisEvent(const ALLEGRO_EVENT &ev);
+  void ButtonDownEvent(const ALLEGRO_EVENT &ev);
+  void ButtonUpEvent(const ALLEGRO_EVENT &ev);
+  void AxisEvent(const ALLEGRO_EVENT &ev);
 }
 
 

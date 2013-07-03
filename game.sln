@@ -1,7 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual C++ Express 2010
+# Visual Studio 2010
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "game", "game\game.vcxproj", "{9A5CC88F-64C4-4D49-B6B3-F9CA60913477}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Editor", "Editor\Editor.vcxproj", "{1943484F-E020-4F82-86E5-CF74CF143227}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,6 +15,10 @@ Global
 		{9A5CC88F-64C4-4D49-B6B3-F9CA60913477}.Debug|Win32.Build.0 = Debug|Win32
 		{9A5CC88F-64C4-4D49-B6B3-F9CA60913477}.Release|Win32.ActiveCfg = Release|Win32
 		{9A5CC88F-64C4-4D49-B6B3-F9CA60913477}.Release|Win32.Build.0 = Release|Win32
+		{1943484F-E020-4F82-86E5-CF74CF143227}.Debug|Win32.ActiveCfg = Debug|Win32
+		{1943484F-E020-4F82-86E5-CF74CF143227}.Debug|Win32.Build.0 = Debug|Win32
+		{1943484F-E020-4F82-86E5-CF74CF143227}.Release|Win32.ActiveCfg = Release|Win32
+		{1943484F-E020-4F82-86E5-CF74CF143227}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

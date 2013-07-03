@@ -6,19 +6,20 @@
 
 namespace Bitmap
 {
-	enum bitmaps
-	{
-		IMG_TEST,
-		IMG_MAX
-	};
-	//public functions
-	void InitBitmaps();
-	void DestroyBitmaps();
-	
-	void LoadBitmap(unsigned int bitmapNum);
-	void LoadBitmap(std::vector<unsigned int> &bitmapNum);
+  enum bitmaps
+  {
+    IMG_TEST,
+    IMG_TEST2,
+    IMG_MAX
+  };
+  //public functions
+  void Init();
+  void DestroyBitmaps();
 
-	ALLEGRO_BITMAP* GetBitmap(unsigned int bitmapNum);
+  void LoadBitmap(unsigned int bitmapNum);
+  void LoadBitmap(std::vector<unsigned int> &bitmapNum);
+
+  ALLEGRO_BITMAP* GetBitmap(unsigned int bitmapNum);
 }
 
 #endif

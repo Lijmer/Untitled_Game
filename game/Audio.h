@@ -5,18 +5,18 @@
 
 namespace Audio
 {
-	enum sampleIDs
-	{
-		SND_TEST,
-		SND_MAX
-	};
+  enum sampleIDs
+  {
+    SND_TEST,
+    SND_MAX
+  };
 
-	void InitAudio();
-	void DestroyAudio();
+  void Init();
+  void DestroyAudio();
 
-	void LoadSample(unsigned int sampleID);
-	void LoadSample(std::vector<unsigned int> &sampleID);
+  void LoadSample(unsigned int sampleID);
+  void LoadSample(std::vector<unsigned int> &sampleID);
 
-	bool PlaySample(unsigned int sampleID);
+  bool PlaySample(unsigned int sampleID);
 }
 #endif

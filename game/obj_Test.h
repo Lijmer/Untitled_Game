@@ -8,21 +8,17 @@
 class obj_Test : public GameObject
 {
 public:
-	obj_Test(void);
-	~obj_Test(void);
+  obj_Test(void);
+  ~obj_Test(void);
 
-	void Update();
-	void Draw();
-	void Destroy();
-	void Collided(GameObject *other);
+  void Update();
+  void Draw();
 
-	const Mask*               GetMask()        {return &mask;}
-	const DerivedMaskPointer* GetDerivedMask() {return &derivedMaskPointer;}
+  Mask*               GetMask()        {return &mask;}
 
 private:
-	Sprite sprite;
-	RectangleMask mask;
-	DerivedMaskPointer derivedMaskPointer;
+  Sprite sprite;
+  RectangleMask mask;
 };
 
 #endif

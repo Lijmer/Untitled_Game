@@ -5,12 +5,12 @@
 
 namespace Exit
 {
-	void Terminate(int returnValue);
-	void Exit(int returnValue);
+  void Terminate(int returnValue);
+  void Exit(int returnValue);
 
-	bool GetRunning();
+  bool GetRunning();
 
-	int GetReturnValue();
+  int GetReturnValue();
 }
 
 #endif

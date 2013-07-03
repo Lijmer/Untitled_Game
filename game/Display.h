@@ -8,11 +8,12 @@ const int _SH = 600;
 
 namespace Display
 {
-	void CreateDisplay();
-	void DestroyDisplay();
-	ALLEGRO_DISPLAY* GetDisplay();
+  void CreateDisplay();
+  void InitIcon();
+  void DestroyDisplay();
+  ALLEGRO_DISPLAY* GetDisplay();
 
-	int GetMonitorWidth();
-	int GetMonitorHeight();
+  int GetMonitorWidth();
+  int GetMonitorHeight();
 }
 #endif

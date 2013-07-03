@@ -58,6 +58,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <AdditionalIncludeDirectories>C:\libraries\allegro\MVSC\include</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -81,9 +82,9 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Mask.cpp" />
     <ClCompile Include="Mouse.cpp" />
-    <ClCompile Include="objects.cpp" />
     <ClCompile Include="objManager.cpp" />
     <ClCompile Include="obj_Test.cpp" />
+    <ClCompile Include="obj_Test2.cpp" />
     <ClCompile Include="RectangleMask.cpp" />
     <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="Text.cpp" />
@@ -104,10 +105,18 @@
     <ClInclude Include="Mouse.h" />
     <ClInclude Include="objManager.h" />
     <ClInclude Include="obj_Test.h" />
+    <ClInclude Include="obj_Test2.h" />
     <ClInclude Include="RectangleMask.h" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="Sprite.h" />
     <ClInclude Include="Text.h" />
     <ClInclude Include="TriangleMask.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="game.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="C:\Users\Max\Desktop\icon.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
