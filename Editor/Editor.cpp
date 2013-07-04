@@ -13,9 +13,14 @@ namespace Editor
   int gridSizeX = 32;
   int gridSizeY = 32;
   objectID selectedObject = OBJ_TEST;
-  GameObject* highlightedObject = 0;
+
+  GameObject* highlightedObject = 0;  
+  float relativeX=0;
+  float relativeY=0;
 
   Grid gridObject;
+
+
 
   void Init()
   {
@@ -24,31 +29,14 @@ namespace Editor
   
   void PlaceObject()
   {
-    float x=0;
-    float y=0;
-    float gridX = Mouse::GetX() - ((int)Mouse::GetX() % gridSizeX);
-    float gridY = Mouse::GetY() - ((int)Mouse::GetY() % gridSizeY);
+    float x = Mouse::GetX();
+    float y = Mouse::GetY();
 
-
-    /*if(grid)
-    {
-      x = Mouse::GetX() - ((int)Mouse::GetX() % gridSizeX);
-      y = Mouse::GetY() - ((int)Mouse::GetY() % gridSizeY);
-    }
-    else
-    {
-    */
-      x = Mouse::GetX();
-      y = Mouse::GetY();
-    //}
+    if(!Keyboard::GetKey(ALLEGRO_KEY_ALT) || !grid)
+      gridObject.TranslateGrid(x,y);
 
     if(objManager::PlaceFree(Mouse::GetX(), Mouse::GetY()))
-    {
-      if(grid)        
-        objManager::CreateObject(selectedObject, gridX, gridY, 0, 0);
-      else
-        objManager::CreateObject(selectedObject, x, y, 0, 0);
-    }
+      SelectObject(objManager::CreateObject(selectedObject, x, y, 0, 0));
   }
 
   void RemoveObject()
@@ -58,26 +46,43 @@ namespace Editor
     float y = Mouse::GetY();
 
     if(!objManager::PlaceFree(x, y))
-    {
       objManager::DestroyObject(x, y);
-    }
   }
   
   void SelectObject()
   {
     highlightedObject = objManager::GetGameObject(Mouse::GetX(), Mouse::GetY());
-    //Find position relative to object before moving
+    if(!highlightedObject)
+      return;
+    relativeX = highlightedObject->GetX() - Mouse::GetX();
+    relativeY = highlightedObject->GetY() - Mouse::GetY();
+  }
+  void SelectObject(GameObject *object)
+  {
+    highlightedObject = object;
+    if(!highlightedObject)
+      return;
+    relativeX = highlightedObject->GetX() - Mouse::GetX();
+    relativeY = highlightedObject->GetY() - Mouse::GetY();
+  }
+  void DeselectObject()
+  {
+    highlightedObject = 0;
+    relativeX=0;
+    relativeY=0;
   }
   void MoveObject()
   {
     if(!highlightedObject)
       return;
+    float x = Mouse::GetX() + relativeX;
+    float y = Mouse::GetY() + relativeY;
 
-    //Set object position to mouse position with the relative distance found in
-    //selectObject()
+    if(!Keyboard::GetKey(ALLEGRO_KEY_ALT) || !grid)
+      gridObject.TranslateGrid(x,y);
 
-    highlightedObject->SetX(highlightedObject->GetX() + Mouse::GetDX());
-    highlightedObject->SetY(highlightedObject->GetY() + Mouse::GetDY());
+    highlightedObject->SetX(x);
+    highlightedObject->SetY(y);
   }
 
   void Draw()

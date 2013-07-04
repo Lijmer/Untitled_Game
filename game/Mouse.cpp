@@ -56,7 +56,7 @@ namespace Mouse
   }
   bool GetMouseButtonReleased(MouseButton btnNum)
   {
-    return mouseButtonPressed[btnNum];
+    return mouseButtonReleased[btnNum];
   }
   ALLEGRO_DISPLAY* GetSelectedDisplay()
   {

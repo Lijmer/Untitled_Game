@@ -43,11 +43,14 @@
     <Filter Include="Source Files\Sprites">
       <UniqueIdentifier>{01251248-d362-4eb6-9c38-c4d7b6a9698c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Editor">
+      <UniqueIdentifier>{037854a2-b288-41f7-90e4-97fe0ea34414}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Editor">
+      <UniqueIdentifier>{26f7638b-97ec-4d46-bc7d-b88f33c8e3c9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Editor.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\game\Audio.cpp">
       <Filter>Source Files\Engine</Filter>
     </ClCompile>
@@ -102,17 +105,20 @@
     <ClCompile Include="..\game\Sprite.cpp">
       <Filter>Source Files\Sprites</Filter>
     </ClCompile>
-    <ClCompile Include="EditorMain.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\game\obj_Test2.cpp">
       <Filter>Source Files\GameObjects</Filter>
     </ClCompile>
+    <ClCompile Include="Editor.cpp">
+      <Filter>Source Files\Editor</Filter>
+    </ClCompile>
     <ClCompile Include="EditorDisplay.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Editor</Filter>
+    </ClCompile>
+    <ClCompile Include="EditorMain.cpp">
+      <Filter>Source Files\Editor</Filter>
     </ClCompile>
     <ClCompile Include="Grid.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Editor</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -167,28 +173,20 @@
     <ClInclude Include="..\game\Sprite.h">
       <Filter>Header Files\Sprites</Filter>
     </ClInclude>
-    <ClInclude Include="Editor.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\game\globals.h">
       <Filter>Header Files\Engine</Filter>
     </ClInclude>
     <ClInclude Include="..\game\obj_Test2.h">
       <Filter>Header Files\GameObjects</Filter>
     </ClInclude>
-    <ClInclude Include="resource.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="Editor.h">
+      <Filter>Header Files\Editor</Filter>
     </ClInclude>
     <ClInclude Include="EditorDisplay.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Editor</Filter>
     </ClInclude>
     <ClInclude Include="Grid.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Editor</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <ResourceCompile Include="Editor.rc">
-      <Filter>Resource Files</Filter>
-    </ResourceCompile>
   </ItemGroup>
 </Project>

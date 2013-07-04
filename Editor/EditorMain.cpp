@@ -1,5 +1,7 @@
 #include "globals.h"
 
+#include <thread>
+
 #include <allegro5/allegro.h>
 #include <allegro5/allegro_native_dialog.h>
 #include <allegro5/allegro_primitives.h>
@@ -29,6 +31,7 @@ void HandleEvent(ALLEGRO_EVENT &ev);
 void TimerEvent();
 void EditorTimerEvent();
 void UpdateFPS();
+void DrawThreadFunction();
 void Draw();
 void Clean();
 
@@ -37,6 +40,7 @@ void InitEditor();
 double               gameTime    = 0;
 double               currentFPS  = 0;
 bool                 redraw      = true;
+bool                 ready       = false;
 ALLEGRO_EVENT_QUEUE *event_queue = 0;
 ALLEGRO_TIMER       *timer       = 0;
 ALLEGRO_TIMER       *editorTimer = 0;
@@ -49,18 +53,18 @@ int main()
   EditorDisplay::CreateDisplay();
   InstallAddons();
   InitComponents();
-  gameTime = al_current_time();
+  gameTime = al_get_time();
   InitEvents();  
-  InitEditor();
+  InitEditor();  
 
   while(Exit::GetRunning())
   {
     ALLEGRO_EVENT ev;
     al_wait_for_event(event_queue, &ev);
     HandleEvent(ev);
-    if(redraw && al_is_event_queue_empty(event_queue))
-      Draw();
+    Draw();
   }
+  
   Clean();
   return Exit::GetReturnValue();
 }
@@ -169,8 +173,7 @@ void TimerEvent()
     {
       if(Mouse::GetMouseButtonPressed(M_LEFT))
         Editor::SelectObject();
-      else if(Mouse::GetMouseButton(M_LEFT))
-        Editor::MoveObject();
+      //else if(Mouse::GetMouseButton(M_LEFT))
     }
     else
     {
@@ -179,7 +182,15 @@ void TimerEvent()
       else if(Mouse::GetMouseButtonPressed(M_RIGHT))
         Editor::RemoveObject();
     }
+
+    Editor::MoveObject();
+    printf("%d\n",Mouse::GetMouseButtonReleased(M_LEFT));
+    if(Mouse::GetMouseButtonReleased(M_LEFT))
+      //|| Keyboard::GetKeyReleased(ALLEGRO_KEY_LCTRL))
+      Editor::DeselectObject();
+
   }
+
   objManager::Update();
   Keyboard::ResetKeys();
   Mouse::ResetMouseButtons();
@@ -201,6 +212,9 @@ void UpdateFPS()
 }
 void Draw()
 {
+  if(!redraw || !al_is_event_queue_empty(event_queue))
+    return;
+
   redraw = false;
 
   UpdateFPS();
@@ -214,17 +228,17 @@ void Draw()
     al_map_rgb(0,0,255), 20, 20, 1, 0, "FPS: %f", currentFPS);
   #endif
   al_flip_display();
-
   EditorDisplay::Draw();
 }
 void Clean()
 {
   objManager::DestroyAllObjects();
 
-  if(event_queue!=0)
+  if(event_queue)
     al_destroy_event_queue(event_queue);
-  if(timer!=0)
+  if(timer)
     al_destroy_timer(timer);
+
   al_uninstall_keyboard();
   al_uninstall_mouse();
   al_shutdown_primitives_addon();

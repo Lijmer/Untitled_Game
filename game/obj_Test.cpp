@@ -30,4 +30,5 @@ void obj_Test::Update()
 void obj_Test::Draw()
 {
   sprite.Draw(x,y);
+  //al_draw_filled_rectangle(x, y, x+32, y+32, al_map_rgba(255,0,0,100));
 }
